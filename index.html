@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Mehedi Hasan | Software Engineer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Md. Mehedi Hasan – Software Engineer specializing in ASP.NET Core, backend systems, and scalable APIs." />
+  <meta name="author" content="Md. Mehedi Hasan" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          animation: {
+            gradient: "gradient 8s ease infinite",
+            float: "float 6s ease-in-out infinite",
+          },
+          keyframes: {
+            gradient: {
+              "0%, 100%": { backgroundPosition: "0% 50%" },
+              "50%": { backgroundPosition: "100% 50%" },
+            },
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-15px)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-200 transition-colors duration-300 font-sans">
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed top-6 right-6 z-50 p-3 rounded-xl bg-white/10 dark:bg-white/10 backdrop-blur border border-white/20 hover:scale-110 transition">
+    <span id="themeIcon">🌙</span>
+  </button>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 bg-[length:300%_300%] animate-gradient">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+      <div class="inline-block mb-6 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
+        <span class="text-sm tracking-wide">Software Engineer</span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white">
+        Hi, I'm Md. Mehedi Hasan
+      </h1>
+
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 h-10">
+        <span id="typingText"></span><span class="animate-pulse">|</span>
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-6">
+        <a href="#projects" class="px-8 py-4 rounded-xl bg-white text-gray-900 font-semibold shadow-lg hover:scale-105 transition">
+          View Projects
+        </a>
+        <a href="#contact" class="px-8 py-4 rounded-xl border border-white/30 text-white hover:bg-white/10 transition">
+          Contact Me
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+      <div data-aos="fade-right">
+        <h2 class="text-4xl font-bold mb-6">About Me</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          I am a software engineer focused on building enterprise-grade backend systems using
+          ASP.NET Core, SQL Server, and cloud-native architectures. I value clean code,
+          scalability, and performance-driven design.
+        </p>
+      </div>
+
+      <div data-aos="fade-left" class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 blur-3xl opacity-30"></div>
+        <div class="relative bg-white dark:bg-gray-900 p-8 rounded-2xl border border-black/10 dark:border-white/10 shadow-xl">
+          <h3 class="text-xl font-semibold mb-4">Core Stack</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">ASP.NET Core</span>
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">C#</span>
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">SQL Server</span>
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">Redis</span>
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">Docker</span>
+            <span class="px-4 py-2 bg-black/5 dark:bg-white/10 rounded-lg">REST APIs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <h2 class="text-4xl font-bold text-center mb-16">Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <div data-aos="zoom-in" class="group bg-white dark:bg-gray-950 p-8 rounded-2xl border border-black/10 dark:border-white/10 hover:border-indigo-500 transition">
+          <h3 class="text-xl font-semibold mb-3">Inventory Management System</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            Enterprise-level inventory system with stock validation and transaction tracking.
+          </p>
+          <a href="#" class="text-indigo-500 group-hover:underline">View on GitHub →</a>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="100" class="group bg-white dark:bg-gray-950 p-8 rounded-2xl border border-black/10 dark:border-white/10 hover:border-purple-500 transition">
+          <h3 class="text-xl font-semibold mb-3">Microservice API Gateway</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            Secure API gateway using JWT authentication and Ocelot.
+          </p>
+          <a href="#" class="text-purple-500 group-hover:underline">View on GitHub →</a>
+        </div>
+
+        <div data-aos="zoom-in" data-aos-delay="200" class="group bg-white dark:bg-gray-950 p-8 rounded-2xl border border-black/10 dark:border-white/10 hover:border-pink-500 transition">
+          <h3 class="text-xl font-semibold mb-3">E-Commerce Backend</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            High-performance backend with payment and order processing.
+          </p>
+          <a href="#" class="text-pink-500 group-hover:underline">View on GitHub →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+      <h2 class="text-4xl font-bold mb-6">Let’s Work Together</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-10">
+        Open to backend-focused roles, freelance work, and architecture discussions.
+      </p>
+
+      <a href="mailto:your-email@example.com"
+         class="inline-block px-10 py-5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold shadow-xl hover:scale-105 transition">
+        Get In Touch
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-500 border-t border-black/10 dark:border-white/10">
+    © <span id="currentYear"></span> Mehedi Hasan. All rights reserved.
+  </footer>
+
+  <!-- Typing Effect -->
+  <script>
+    const texts = [
+      "I build scalable backend systems.",
+      "I design clean and secure APIs.",
+      "I architect enterprise-grade software."
+    ];
+
+    let index = 0, charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typingText");
+
+    function typeEffect() {
+      const current = texts[index];
+      typingElement.textContent = isDeleting
+        ? current.substring(0, charIndex--)
+        : current.substring(0, charIndex++);
+
+      let speed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === current.length + 1) {
+        speed = 1400;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % texts.length;
+        speed = 400;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
+
+  <!-- Theme Toggle -->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const html = document.documentElement;
+
+    if (localStorage.theme === "light") {
+      html.classList.remove("dark");
+      icon.textContent = "☀️";
+    } else {
+      html.classList.add("dark");
+      icon.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      html.classList.toggle("dark");
+      localStorage.theme = html.classList.contains("dark") ? "dark" : "light";
+      icon.textContent = html.classList.contains("dark") ? "🌙" : "☀️";
+    });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+  </script>
+
+  <!-- Year In Footer -->
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+
+
+</body>
+</html>
