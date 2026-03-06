@@ -23,49 +23,13 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          animation: {
-            gradient: "gradient 8s ease infinite",
-            float: "float 6s ease-in-out infinite",
-          },
-          keyframes: {
-            gradient: {
-              "0%, 100%": { backgroundPosition: "0% 50%" },
-              "50%": { backgroundPosition: "100% 50%" },
-            },
-            float: {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-12px)" },
-            },
-          },
-        },
-      },
-    };
-  </script>
+  <script src="/assets/js/tailwind.config.js"></script>
 
   <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    .dot-grid {
-      background-image: radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #030712; }
-    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
-  </style>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body class="bg-gray-950 text-gray-300 font-sans">
@@ -711,49 +675,12 @@
   </div>
 </footer>
 
-<!-- ─── SCRIPTS ─── -->
-
-<!-- Typing Effect -->
-<script>
-  const texts = [
-    "I build scalable backend systems.",
-    "I design clean and secure APIs.",
-    "I architect enterprise-grade software."
-  ];
-  let index = 0, charIndex = 0, isDeleting = false;
-  const el = document.getElementById("typingText");
-  function typeEffect() {
-    const current = texts[index];
-    el.textContent = isDeleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
-    let speed = isDeleting ? 40 : 80;
-    if (!isDeleting && charIndex === current.length + 1) { speed = 1600; isDeleting = true; }
-    else if (isDeleting && charIndex === 0) { isDeleting = false; index = (index + 1) % texts.length; speed = 400; }
-    setTimeout(typeEffect, speed);
-  }
-  document.addEventListener("DOMContentLoaded", typeEffect);
-</script>
-
-<!-- Navbar scroll -->
-<script>
-  const navbar = document.getElementById("navbar");
-  window.addEventListener("scroll", () => {
-    navbar.classList.toggle("bg-gray-950/80", window.scrollY > 60);
-    navbar.classList.toggle("backdrop-blur-xl", window.scrollY > 60);
-    navbar.classList.toggle("border-b", window.scrollY > 60);
-    navbar.classList.toggle("border-white/5", window.scrollY > 60);
-  });
-  const btn = document.getElementById("mobileMenuBtn");
-  const menu = document.getElementById("mobileMenu");
-  btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.add("hidden")));
-</script>
-
 <!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({ duration: 800, once: true, offset: 60 });</script>
 
-<!-- Year -->
-<script>document.getElementById("currentYear").textContent = new Date().getFullYear();</script>
+<!-- Custom scripts -->
+<script src="/assets/js/main.js"></script>
 
 </body>
 </html>
