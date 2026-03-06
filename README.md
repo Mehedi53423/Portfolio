@@ -2,7 +2,7 @@
 
 Personal portfolio website for **Md. Mehedi Hasan**, Junior Software Engineer at SoftifyBD, specializing in ASP.NET Core, backend systems, and scalable APIs.
 
-🌐 **Live site:** *(add your deployed URL here)*
+🌐 **Live site:** *mehedi-hasan.com.bd*
 
 ---
 
@@ -80,9 +80,11 @@ python -m http.server 8000
 
 | | |
 |---|---|
-| **Email** | mehedi53423@gmal.com |
+| **Email** | mehedi53423@gmail.com |
 | **GitHub** | [github.com/Mehedi53423](https://github.com/Mehedi53423) |
 | **LinkedIn** | [linkedin.com/in/mehedi53423](https://www.linkedin.com/in/mehedi53423/) |
+| **GitLab** | [gitlab.com/Mehedi53423](https://gitlab.com/Mehedi53423) |
+| **Bangla Portfolio** | [মেহেদী-হাসান.বাংলা](https://মেহেদী-হাসান.বাংলা) |
 
 ---
 
