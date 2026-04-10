@@ -1,8 +1,10 @@
+/* ── Dot Grid ────────────────────────────────────────────────────────────────── */
 .dot-grid {
   background-image: radial-gradient(circle, rgba(99,102,241,0.12) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
+/* ── Gradient Text ───────────────────────────────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
   -webkit-background-clip: text;
@@ -10,14 +12,70 @@
   background-clip: text;
 }
 
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #030712; }
 ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
 
-/* ── Skill Bar Shimmer ────────────────────────────────────────────────────── */
+/* ── Page Loader ─────────────────────────────────────────────────────────────── */
+#pageLoader {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#pageLoader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Scroll Progress Bar ─────────────────────────────────────────────────────── */
+#scrollProgress {
+  will-change: width;
+  transition: width 0.08s linear;
+}
+
+/* ── Custom Cursor (desktop only) ────────────────────────────────────────────── */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, label { cursor: none !important; }
+}
+
+#cursorDot {
+  width: 8px;
+  height: 8px;
+  background: rgba(99, 102, 241, 0.95);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+#cursorDot.cursor-hover {
+  width: 14px;
+  height: 14px;
+  background: rgba(168, 85, 247, 0.95);
+}
+
+#cursorRing {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(99, 102, 241, 0.45);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+#cursorRing.cursor-hover {
+  width: 46px;
+  height: 46px;
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+/* ── Skill Bar ───────────────────────────────────────────────────────────────── */
 .skill-bar {
   position: relative;
   overflow: hidden;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-bar::after {
@@ -27,12 +85,7 @@
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.30) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.30) 50%, transparent 100%);
   animation: shimmer 2.4s ease-in-out infinite;
   animation-delay: var(--shimmer-delay, 0s);
   border-radius: inherit;
@@ -43,56 +96,201 @@
   100% { left: 110%; }
 }
 
-/* ── Button Shimmer on Hover ─────────────────────────────────────────────── */
+/* ── Button Shimmer on Hover ─────────────────────────────────────────────────── */
 .btn-shimmer {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
-
 .btn-shimmer::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.20),
-    transparent
-  );
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.20), transparent);
   transform: skewX(-20deg);
 }
-
 .btn-shimmer:hover::before {
   animation: btn-sweep 0.55s ease forwards;
 }
-
 @keyframes btn-sweep {
   0%   { left: -75%; }
   100% { left: 125%; }
 }
 
-/* ── Contact Card Glow Border ────────────────────────────────────────────── */
+/* ── Contact Card Glow Border ────────────────────────────────────────────────── */
 @keyframes glow-border {
   0%, 100% { border-color: rgba(255,255,255,0.05); box-shadow: none; }
-  50%       { border-color: rgba(99,102,241,0.35); box-shadow: 0 0 18px rgba(99,102,241,0.12); }
+  50%       { border-color: rgba(99,102,241,0.35);  box-shadow: 0 0 18px rgba(99,102,241,0.12); }
 }
+.contact-card { animation: glow-border 3.5s ease-in-out infinite; }
+.contact-card:nth-child(2) { animation-delay: 0.6s; }
+.contact-card:nth-child(3) { animation-delay: 1.2s; }
+.contact-card:nth-child(4) { animation-delay: 1.8s; }
+.contact-card:nth-child(5) { animation-delay: 2.4s; }
+.contact-card:nth-child(6) { animation-delay: 3.0s; }
 
-#contact .group {
-  animation: glow-border 3.5s ease-in-out infinite;
-}
-#contact .group:nth-child(2) { animation-delay: 0.6s; }
-#contact .group:nth-child(3) { animation-delay: 1.2s; }
-#contact .group:nth-child(4) { animation-delay: 1.8s; }
-#contact .group:nth-child(5) { animation-delay: 2.4s; }
-#contact .group:nth-child(6) { animation-delay: 3.0s; }
-
-/* ── Tilt Card Isolation ─────────────────────────────────────────────────── */
+/* ── Tilt Card Isolation ─────────────────────────────────────────────────────── */
 #services .group,
 #projects .group,
-#contact .group {
+.contact-card,
+#testimonials .group,
+#certifications .group {
   isolation: isolate;
 }
+
+/* ── Skills Filter Tabs ──────────────────────────────────────────────────────── */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+.filter-btn.active {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2));
+  border-color: rgba(99,102,241,0.45) !important;
+  color: #a5b4fc !important;
+}
+
+.skill-item {
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+}
+.skill-item.hidden-item {
+  opacity: 0;
+  transform: scale(0.94);
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ── Project Modal ───────────────────────────────────────────────────────────── */
+#projectModal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+#projectModal.modal-open {
+  opacity: 1;
+  visibility: visible;
+}
+#projectModal .modal-panel {
+  transform: scale(0.94) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#projectModal.modal-open .modal-panel {
+  transform: scale(1) translateY(0);
+}
+
+/* ── Contact Form Inputs ─────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.75rem;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: rgba(99,102,241,0.5);
+  background: rgba(255,255,255,0.05);
+}
+.form-input::placeholder { color: #4b5563; }
+
+/* ── Section Gradient Dividers ───────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(99,102,241,0.25), transparent);
+}
+
+/* ── Testimonial Quote ───────────────────────────────────────────────────────── */
+.testimonial-quote::before {
+  content: '"';
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(99,102,241,0.15);
+  font-family: Georgia, serif;
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+}
+
+/* ── Blog Card Hover Line ────────────────────────────────────────────────────── */
+.blog-card-line {
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(to right, #6366f1, #a855f7);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+.group:hover .blog-card-line { width: 100%; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   ─────────────────────────────────────────────────────────────────────────── */
+html.light-mode {
+  color-scheme: light;
+}
+html.light-mode body {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+/* Scrollbar */
+html.light-mode ::-webkit-scrollbar-track { background: #e2e8f0; }
+html.light-mode ::-webkit-scrollbar-thumb { background: #6366f1; }
+
+/* Nav */
+html.light-mode #navbar.scrolled-nav,
+html.light-mode #navbar { background-color: rgba(241,245,249,0.9) !important; }
+html.light-mode #mobileMenu { background-color: rgba(241,245,249,0.98) !important; border-top-color: rgba(0,0,0,0.08) !important; }
+
+/* Backgrounds */
+html.light-mode .bg-gray-950  { background-color: #f8fafc !important; }
+html.light-mode .bg-gray-900  { background-color: #ffffff !important; }
+html.light-mode .bg-gray-900\/30,
+html.light-mode .bg-gray-900\/40 { background-color: rgba(203,213,225,0.4) !important; }
+html.light-mode .bg-gray-900\/60,
+html.light-mode .bg-gray-900\/80 { background-color: rgba(255,255,255,0.8) !important; }
+html.light-mode .bg-white\/5  { background-color: rgba(0,0,0,0.04) !important; }
+
+/* Text */
+html.light-mode .text-white   { color: #0f172a !important; }
+html.light-mode .text-gray-300 { color: #334155 !important; }
+html.light-mode .text-gray-400 { color: #475569 !important; }
+html.light-mode .text-gray-500 { color: #64748b !important; }
+html.light-mode .text-gray-600 { color: #94a3b8 !important; }
+html.light-mode .text-gray-700 { color: #94a3b8 !important; }
+
+/* Borders */
+html.light-mode .border-white\/5  { border-color: rgba(0,0,0,0.07) !important; }
+html.light-mode .border-white\/10 { border-color: rgba(0,0,0,0.10) !important; }
+
+/* Particles */
+html.light-mode #particleCanvas { opacity: 0.35; }
+
+/* Page loader */
+html.light-mode #pageLoader { background-color: #f8fafc !important; }
+
+/* Dot grid */
+html.light-mode .dot-grid {
+  background-image: radial-gradient(circle, rgba(99,102,241,0.18) 1px, transparent 1px);
+}
+
+/* Form inputs */
+html.light-mode .form-input {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.10);
+  color: #0f172a;
+}
+html.light-mode .form-input:focus {
+  border-color: rgba(99,102,241,0.5);
+  background: rgba(0,0,0,0.04);
+}
+html.light-mode .form-input::placeholder { color: #94a3b8; }
+
+/* Skill tags */
+html.light-mode .bg-white\/5.border { border-color: rgba(0,0,0,0.08) !important; }
